@@ -1,30 +1,56 @@
-<!-- Title: one imperative line that stands alone in the history,
-     e.g. "Email only students who have not submitted".
-     At most three lines per section; never restate the diff. -->
-Closes # <!-- delete this line if there is no issue -->
-Traces to: <!-- UC-<AREA>-<slug>, BR-<slug>, docs/design/<area>.md, or "none: refactor | config" -->
+<!--
+  STOP. Check the base repository named at the top of this page.
 
-## Why
-<!-- The problem, in one or two sentences, readable without opening the issue. -->
+  It must be YOUR fork, under your own GitHub username. If it names an owner of
+  tcu-cosc-40943, you have opened this against the class repository: close it,
+  press New pull request again, and change the base repository dropdown to your
+  fork and the base branch to main. A pull request against the class repository
+  is not your submission.
 
-## What changed
-<!-- A summary, not a narration of the diff. Decisions the code does not show and the
-     alternative you rejected. Anything you deliberately left unchanged. -->
+  Keep each section short; tables over paragraphs. These comments do not appear
+  in the posted description, so leave them or delete them as you like.
+-->
+
+Closes #  <!-- your "Triage slice N" issue -->
+Slice: <!-- the digit and name from the assignment page -->
+Traces to: none: config
+
+## Project decisions
+<!-- D1 to D4: enforce, turn off, or narrow; the reason someone could check;
+     the file you changed (spotbugs-exclude.xml, pmd-ruleset.xml, or the code). -->
+
+| | Rule | Choice | Reason | Where recorded |
+|---|---|---|---|---|
+| D1 | EI_EXPOSE_REP, EI_EXPOSE_REP2 | | | |
+| D2 | UncommentedEmptyConstructor, UnnecessaryConstructor | | | |
+| D3 | ControlStatementBraces | | | |
+| D4 | GuardLogStatement | | | |
+
+## My slice
+<!-- One row per finding in your slice. Verdict: real, false positive, or not worth it.
+     Recorded as: the fix commit, or the suppression (at the site, with its reason). -->
+
+| File:line | Rule | Verdict | Recorded as | Reason |
+|---|---|---|---|---|
+| | | | | |
+
+## The bug I showed
+<!-- The test, the commit where it fails (before the fix), the commit where it
+     passes. Or, if no finding in your slice can be shown by a test, why. -->
+
+## The baselines
+<!-- Entries in each file, before and after. Neither may grow. Frontend slices:
+     the vue-tsc and ESLint counts from the CI log, before and after. -->
+
+| | Before | After |
+|---|---|---|
+| spotbugs-baseline.xml | 237 | |
+| pmd-baseline.properties | 130 | |
+
+## What the agent did
+<!-- What it proposed, what you kept, what you rejected or rewrote, and why.
+     If you used no agent, say so. -->
 
 ## How it was verified
-- **Verified:**
-- **Not verified:**
-<!-- Evidence, not assertion.
-     Code: tests mapped to the design's test list (row → test), tests showing existing
-     behavior still works, what you ran end to end, a screenshot for a UI change.
-     Specification: the source (client meeting, open issue) and what else you updated so
-     the documents still agree (glossary, traceability). Design: the questions test,
-     in a collapsed <details> block, which the length limit does not count.
-     Agent review: what a fresh-context review found and what you did about each.
-     Not verified: what nobody checked. An honest answer here is never penalized. -->
-
-## Reviewer focus
-<!-- Where to look hardest and what feedback you need: the riskiest part (a security rule,
-     shared code, a glossary term or business rule others cite) and where to start reading.
-     For a design: the decisions most likely to be wrong, and any change to the
-     architecture-of-record. -->
+- **Verified:** <!-- the checks on this pull request; what you ran locally -->
+- **Not verified:** <!-- what nobody checked. An honest answer here is never penalized. -->
