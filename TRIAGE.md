@@ -57,7 +57,7 @@ The implementation avoids blanket defensive copies on entities, removes no requi
 - The locale regression was observed failing before its fix and passing afterward.
 - Five collection tests cover input aliasing, read-only access, nullable collections, null elements, report assembly, and template sections.
 - With Java 21, `mvnw.cmd verify -DexcludedGroups=integration "-Dtest=!WebConfigSpaForwardingTest" -B -ntp` passed: 131 tests, zero failures or errors, and both SpotBugs and PMD gates passed. `WebConfigSpaForwardingTest` also requires the shared Docker containers, so it is explicitly excluded alongside the integration tag. This is a partial verification command, not a substitute for full CI.
-- A full `mvnw.cmd verify` was attempted with Java 21. Docker Desktop failed to start, leaving no usable Docker engine. The run reported 25 container-dependent initialization errors and no assertion failures. Full integration behavior remains unverified.
+- After Docker became available, the full Java 21 `mvnw.cmd verify -B -ntp` passed: **445 tests, zero failures, zero errors, zero skipped**, followed by passing SpotBugs and PMD gates. MySQL and Mailpit test containers started successfully. The run took 13 minutes 12 seconds. This supersedes the earlier attempt that was blocked by Docker startup failures.
 - Frontend: `npm ci` succeeded; ESLint reports 128 errors and two warnings; type checking reports 18 errors; Prettier reports 75 files. No frontend source was changed.
 - GitHub Actions, the GitHub issue, the pull request, and Dockerfile CI lint have not been verified or created by this local implementation.
 
