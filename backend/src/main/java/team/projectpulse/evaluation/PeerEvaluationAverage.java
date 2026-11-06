@@ -1,5 +1,7 @@
 package team.projectpulse.evaluation;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PeerEvaluationAverage {
@@ -15,9 +17,6 @@ public class PeerEvaluationAverage {
     private List<String> privateComments;
     private List<RatingAverage> ratingAverages;
 
-
-    public PeerEvaluationAverage() {
-    }
 
     public Integer getStudentId() {
         return studentId;
@@ -80,7 +79,7 @@ public class PeerEvaluationAverage {
     }
 
     public void setPublicComments(List<String> publicComments) {
-        this.publicComments = publicComments;
+        this.publicComments = publicComments == null ? null : Collections.unmodifiableList(new ArrayList<>(publicComments));
     }
 
     public List<String> getPrivateComments() {
@@ -88,7 +87,7 @@ public class PeerEvaluationAverage {
     }
 
     public void setPrivateComments(List<String> privateComments) {
-        this.privateComments = privateComments;
+        this.privateComments = privateComments == null ? null : Collections.unmodifiableList(new ArrayList<>(privateComments));
     }
 
     public List<RatingAverage> getRatingAverages() {
@@ -96,7 +95,7 @@ public class PeerEvaluationAverage {
     }
 
     public void setRatingAverages(List<RatingAverage> ratingAverages) {
-        this.ratingAverages = ratingAverages;
+        this.ratingAverages = ratingAverages == null ? null : Collections.unmodifiableList(new ArrayList<>(ratingAverages));
     }
 
 }

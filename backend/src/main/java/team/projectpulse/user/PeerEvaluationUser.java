@@ -34,6 +34,7 @@ public abstract class PeerEvaluationUser {
 
 
     public PeerEvaluationUser() {
+        // Required by JPA to instantiate the entity.
     }
 
     public PeerEvaluationUser(String username, String firstName, String lastName, String email, String password, boolean enabled, String roles) {

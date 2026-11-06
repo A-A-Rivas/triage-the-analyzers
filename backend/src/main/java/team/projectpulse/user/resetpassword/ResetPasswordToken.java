@@ -16,6 +16,7 @@ public class ResetPasswordToken {
 
 
     public ResetPasswordToken() {
+        // Required by JPA to instantiate the entity.
     }
 
     public ResetPasswordToken(String email) {

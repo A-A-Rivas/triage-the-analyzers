@@ -15,6 +15,7 @@ public class UserInvitation {
 
 
     public UserInvitation() {
+        // Required by JPA to instantiate the entity.
     }
 
     public UserInvitation(String email, Integer courseId, Integer sectionId, String token, String role) {

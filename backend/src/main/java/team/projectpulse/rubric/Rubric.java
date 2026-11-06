@@ -25,6 +25,7 @@ public class Rubric {
 
 
     public Rubric() {
+        // Required by JPA to instantiate the entity.
     }
 
     public Rubric(String rubricName) {

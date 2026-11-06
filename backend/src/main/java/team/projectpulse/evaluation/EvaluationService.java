@@ -224,10 +224,9 @@ public class EvaluationService {
         List<Student> students = this.studentRepository.findBySectionSectionId(sectionId).stream().filter(student -> student.getTeam() != null).collect(Collectors.toList());
 
         // For each student, compute her average total score, collect all public comments and private comments, and compute rating averages for each criterion.
-        students.forEach(student -> {
-            PeerEvaluationAverage peerEvaluationAverage = getPeerEvaluationAverage(week, student);
-            report.getPeerEvaluationAverages().add(peerEvaluationAverage);
-        });
+        report.setPeerEvaluationAverages(students.stream()
+                .map(student -> getPeerEvaluationAverage(week, student))
+                .collect(Collectors.toList()));
 
         // Who has not submitted is not part of this report: it is BR-submission-owed, which the notification slice
         // owns (GET /sections/{sectionId}/submission-status). This used to count a student as done after she

@@ -4,7 +4,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Locale;
 
-public class RequirementDocumentSpecs {
+public final class RequirementDocumentSpecs {
 
     private RequirementDocumentSpecs() {
         // Static query helpers are not instantiated.
