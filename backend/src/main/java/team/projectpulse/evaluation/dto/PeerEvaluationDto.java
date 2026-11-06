@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public record PeerEvaluationDto(Integer evaluationId,
@@ -27,4 +29,9 @@ public record PeerEvaluationDto(Integer evaluationId,
                                 LocalDateTime createdAt,
                                 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH:mm:ss")
                                 LocalDateTime updatedAt) {
+
+    public PeerEvaluationDto {
+        // Snapshot collection structure while preserving nullable API values.
+        ratings = ratings == null ? null : Collections.unmodifiableList(new ArrayList<>(ratings));
+    }
 }

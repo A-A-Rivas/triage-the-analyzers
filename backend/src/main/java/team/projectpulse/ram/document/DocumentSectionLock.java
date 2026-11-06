@@ -32,12 +32,15 @@ public class DocumentSectionLock {
     private Integer version;
 
 
-    public DocumentSectionLock() {
-    }
-
+    // Keep the unlocked, manual-lock, and timed-lock cases explicit for lease maintenance.
+    @SuppressWarnings("PMD.SimplifyBooleanReturns")
     public boolean isLocked(Instant now) {
-        if (lockedAt == null) return false;
-        if (expiresAt == null) return true;
+        if (lockedAt == null) {
+            return false;
+        }
+        if (expiresAt == null) {
+            return true;
+        }
         return expiresAt.isAfter(now);
     }
 

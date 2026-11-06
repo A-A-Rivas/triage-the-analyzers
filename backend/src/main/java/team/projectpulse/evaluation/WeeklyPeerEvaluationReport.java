@@ -1,17 +1,15 @@
 package team.projectpulse.evaluation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WeeklyPeerEvaluationReport {
 
     private String sectionName;
     private String week;
-    private List<PeerEvaluationAverage> peerEvaluationAverages = new ArrayList<>();
+    private List<PeerEvaluationAverage> peerEvaluationAverages = Collections.unmodifiableList(new ArrayList<>());
 
-
-    public WeeklyPeerEvaluationReport() {
-    }
 
     public String getSectionName() {
         return sectionName;
@@ -34,7 +32,7 @@ public class WeeklyPeerEvaluationReport {
     }
 
     public void setPeerEvaluationAverages(List<PeerEvaluationAverage> peerEvaluationAverages) {
-        this.peerEvaluationAverages = peerEvaluationAverages;
+        this.peerEvaluationAverages = peerEvaluationAverages == null ? null : Collections.unmodifiableList(new ArrayList<>(peerEvaluationAverages));
     }
 
 }

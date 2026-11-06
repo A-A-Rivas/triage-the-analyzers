@@ -3,12 +3,14 @@ package team.projectpulse.ram.document.template;
 import team.projectpulse.ram.requirement.SectionType;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class DocumentTemplate {
 
     private String title;
-    private List<SectionTemplate> sections = new ArrayList<>();
+    private List<SectionTemplate> sections = Collections.unmodifiableList(new ArrayList<>());
 
     public String getTitle() {
         return title;
@@ -19,11 +21,12 @@ public class DocumentTemplate {
     }
 
     public List<SectionTemplate> getSections() {
-        return sections;
+        // Keep access read-only even when YAML mapping populates the backing field directly.
+        return Optional.ofNullable(sections).map(Collections::unmodifiableList).orElse(null);
     }
 
     public void setSections(List<SectionTemplate> sections) {
-        this.sections = sections;
+        this.sections = sections == null ? null : Collections.unmodifiableList(new ArrayList<>(sections));
     }
 
     public static class SectionTemplate {

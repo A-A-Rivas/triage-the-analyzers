@@ -13,5 +13,10 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
     <rule ref="rulesets/java/quickstart.xml">
+        <!-- D2: enforce both constructor rules: explain required no-arg constructors and omit redundant ones. -->
+        <!-- D3: enforce braces to keep subsequent edits inside explicit control-flow boundaries. -->
+        <!-- D4: parameterized SLF4J calls here use cheap getters, lengths, and sizes. Message
+             formatting is already deferred; guards would add branches for negligible saved work. -->
+        <exclude name="GuardLogStatement"/>
     </rule>
 </ruleset>
